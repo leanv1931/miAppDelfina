@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #fef9f0;
+  color: #333;
+  padding: 50px;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  border: 2px solid #ffd700;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff8dc;
+}
+
+.bebe-foto {
+  width: 80%;
+  border-radius: 10px;
+  margin-top: 20px;
+}
