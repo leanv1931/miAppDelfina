@@ -27,6 +27,32 @@
     <h1>Bienvenida, Delfina!</h1>
     <img src="bebe.jpg" alt="Foto de Delfina" class="bebe-foto">
     <p>¡hola mundo!</p>
+
+    <p id="contador" class="contador"></p>
+
+    <script>
+  (function () {
+    // Hoy, a medianoche (para evitar problemas de huso horario)
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    // Cumple 2026 (Buenos Aires es -03:00, pero calculamos en local y a medianoche)
+    const cumple2026 = new Date(2026, 6, 21); // Mes 6 = julio (0-based)
+    cumple2026.setHours(0, 0, 0, 0);
+
+    const MS_POR_DIA = 24 * 60 * 60 * 1000;
+    // ceil para contar días restantes sin quedar en 0 por diferencias de horas
+    const diasRestantes = Math.max(0, Math.ceil((cumple2026 - hoy) / MS_POR_DIA));
+
+    const texto = diasRestantes === 1
+      ? `Falta ${diasRestantes} día para mi cumple 🎂`
+      : `Faltan ${diasRestantes} días para mi cumple 🎂`;
+
+    document.getElementById('contador').textContent = texto;
+  })();
+</script>
+
+
   </div>
 </body>
 </html>
