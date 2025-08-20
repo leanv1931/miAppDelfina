@@ -1,12 +1,12 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Servir archivos estáticos desde la carpeta 'public'
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 // Servir archivos estáticos desde la carpeta 'src'
-app.use('/src', express.static('src'));
+app.use('/src', express.static(path.join(__dirname, 'src')));
 // Para procesar JSON en las peticiones
 app.use(express.json());
 
