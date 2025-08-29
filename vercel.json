@@ -8,16 +8,12 @@
   ],
   "routes": [
     {
-      "src": "/static/(.*)",
-      "dest": "/src/public/$1"
-    },
-    {
       "src": "/googledbcecb6033bfd83d.html",
       "dest": "/src/public/googledbcecb6033bfd83d.html"
     },
     {
       "src": "/(.*)",
-      "dest": "src/server.js"
+      "dest": "/src/server.js"
     }
   ]
 }
