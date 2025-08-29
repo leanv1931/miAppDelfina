@@ -1,0 +1,118 @@
+[
+  {
+    "description": "  Como usuario\n  Quiero ver la página principal de Delfina\n  Para navegar por la aplicación",
+    "elements": [
+      {
+        "description": "",
+        "id": "página-principal;mostrar-información-de-la-página-principal",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Mostrar información de la página principal",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 600082547
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "que estoy en la página principal",
+            "match": {
+              "location": "step-definitions/home.steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1059690583
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "la página se carga completamente",
+            "match": {
+              "location": "step-definitions/home.steps.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1006454772
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "debo ver el título \"Delfina\"",
+            "match": {
+              "location": "step-definitions/home.steps.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14587354
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 10,
+            "name": "debo ver el encabezado \"Bienvenida Delfina\"",
+            "match": {
+              "location": "step-definitions/home.steps.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45933278
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "debo ver la foto de Delfina",
+            "match": {
+              "location": "step-definitions/home.steps.ts:35"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15589049
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "debo ver el botón para navegar a notas",
+            "match": {
+              "location": "step-definitions/home.steps.ts:42"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9931047
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2039307225
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "página-principal",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Página Principal",
+    "tags": [],
+    "uri": "features/home.feature"
+  }
+]

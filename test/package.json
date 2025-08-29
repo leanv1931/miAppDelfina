@@ -1,0 +1,25 @@
+{
+  "name": "midelfina-testing",
+  "version": "1.0.0",
+  "description": "Tests para la aplicación Mi Delfina",
+  "scripts": {
+    "test": "cucumber-js --config cucumber.config.js",
+    "test:home": "cucumber-js features/home.feature --config cucumber.config.js",
+    "test:notes": "cucumber-js features/notes.feature --config cucumber.config.js",
+    "test:ui": "cucumber-js --config cucumber.config.js --format html:test-results/cucumber-report.html",
+    "test:debug": "cucumber-js --config cucumber.config.js --fail-fast",
+    "test:visual": "cucumber-js --config cucumber.config.js --format @cucumber/pretty-formatter",
+    "test:watch": "nodemon --watch features --watch pages --watch step-definitions --watch support --ext ts,feature --exec \"npm run test:visual\"",
+    "clean": "rm -rf test-results/* && mkdir -p test-results",
+    "report": "open test-results/cucumber-report.html",
+    "lint": "tsc --noEmit",
+    "dev:server": "cd .. && npm run dev"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@playwright/test": "^1.55.0",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}

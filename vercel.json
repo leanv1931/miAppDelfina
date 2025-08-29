@@ -2,22 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js",
+      "src": "src/server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/public/$1"
+      "dest": "/src/public/$1"
     },
     {
-      "src": "/src/(.*)",
-      "dest": "/src/$1"
+      "src": "/googledbcecb6033bfd83d.html",
+      "dest": "/src/public/googledbcecb6033bfd83d.html"
     },
     {
       "src": "/(.*)",
-      "dest": "server.js"
+      "dest": "src/server.js"
     }
   ]
 }

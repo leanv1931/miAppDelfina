@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020"],
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "@pages/*": ["pages/*"],
+      "@support/*": ["support/*"],
+      "@step-definitions/*": ["step-definitions/*"]
+    },
+    "typeRoots": ["node_modules/@types", "support/types.ts"]
+  },
+  "include": [
+    "**/*.ts",
+    "support/types.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "ts-node": {
+    "files": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}

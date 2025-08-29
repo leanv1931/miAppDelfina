@@ -1,32 +1,31 @@
 {
   "name": "midelfina",
   "version": "1.0.0",
-  "description": "Aplicación web para compartir momentos especiales de Delfina",
-  "main": "server.js",
-  "engines": {
-    "node": ">=14.0.0"
-  },
+  "description": "Aplicación web de Delfina",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js",
-    "test": "playwright test",
-    "vercel-build": "echo 'Build completado'"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "cd test && npm test",
+    "test:ui": "cd test && npm run test:ui && npm run report",
+    "test:home": "cd test && npm run test:home",
+    "test:notes": "cd test && npm run test:notes",
+    "test:watch": "cd test && npm run test:watch",
+    "test:debug": "cd test && npm run test:debug",
+    "test:visual": "cd test && npm run test:visual",
+    "test:dev": "concurrently \"npm run dev\" \"cd test && npm run dev:server\"",
+    "clean": "cd test && npm run clean",
+    "setup": "npm install && cd test && npm install",
+    "build": "echo 'No build step required for this simple Express app'",
+    "lint": "cd test && npm run lint",
+    "test:ui-demo": "./test-ui.sh",
+    "test:visual-debug": "./test-visual.sh"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/leanv1931/miAppDelfina.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/leanv1931/miAppDelfina/issues"
-  },
-  "homepage": "https://github.com/leanv1931/miAppDelfina#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.18.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.55.0"
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.1"
   }
 }

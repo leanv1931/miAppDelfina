@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas - Delfina</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Notas de Delfina</h1>
+        
+        <form id="notaForm" class="nota-form">
+            <textarea 
+                id="notaTexto" 
+                placeholder="Escribe una nota, ej: ir al pediatra..."
+                rows="4"
+                required
+            ></textarea>
+            <button type="submit" class="button">Guardar Nota</button>
+        </form>
+
+        <div id="notasGuardadas" class="notas-lista">
+            <!-- Aquí se mostrarán las notas guardadas -->
+        </div>
+
+        <div class="button-container">
+            <a href="/" class="button button-secondary">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript simple para manejar las notas
+        let notas = JSON.parse(localStorage.getItem('notas')) || [];
+
+        document.getElementById('notaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const textoNota = document.getElementById('notaTexto').value.trim();
+            if (textoNota) {
+                const nota = {
+                    id: Date.now(),
+                    texto: textoNota,
+                    fecha: new Date().toLocaleDateString()
+                };
+                
+                notas.unshift(nota);
+                localStorage.setItem('notas', JSON.stringify(notas));
+                
+                document.getElementById('notaTexto').value = '';
+                mostrarNotas();
+            }
+        });
+
+        function mostrarNotas() {
+            const container = document.getElementById('notasGuardadas');
+            
+            if (notas.length === 0) {
+                container.innerHTML = '<p class="no-notas">No hay notas guardadas</p>';
+                return;
+            }
+
+            container.innerHTML = notas.map(nota => `
+                <div class="nota-item">
+                    <p class="nota-texto">${nota.texto}</p>
+                    <small class="nota-fecha">${nota.fecha}</small>
+                </div>
+            `).join('');
+        }
+
+        // Mostrar notas al cargar la página
+        mostrarNotas();
+    </script>
+</body>
+</html>
