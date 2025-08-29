@@ -30,28 +30,64 @@
     </div>
 
     <script>
-        // JavaScript simple para manejar las notas
-        let notas = JSON.parse(localStorage.getItem('notas')) || [];
+        // 🔌 CONCEPTO: Conectar Frontend con Backend
+        // En lugar de usar localStorage, ahora usamos la API como fuente de verdad
+        
+        let notas = []; // Array vacío - se llenará desde la API
 
-        document.getElementById('notaForm').addEventListener('submit', function(e) {
+        // 📡 CONCEPTO: Cargar datos desde el servidor al iniciar
+        async function cargarNotasDesdeAPI() {
+            try {
+                const response = await fetch('/api/notes');
+                const data = await response.json();
+                
+                // 🔄 CONCEPTO: Transformar datos del servidor al formato del frontend
+                notas = data.notes.map(nota => ({
+                    id: nota.id,
+                    texto: nota.text,  // API usa "text", frontend usa "texto"
+                    fecha: new Date(nota.createdAt).toLocaleDateString()
+                }));
+                
+                mostrarNotas();
+            } catch (error) {
+                console.error('Error cargando notas:', error);
+            }
+        }
+
+        // 💾 CONCEPTO: Guardar nueva nota en el servidor
+        document.getElementById('notaForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const textoNota = document.getElementById('notaTexto').value.trim();
             if (textoNota) {
-                const nota = {
-                    id: Date.now(),
-                    texto: textoNota,
-                    fecha: new Date().toLocaleDateString()
-                };
-                
-                notas.unshift(nota);
-                localStorage.setItem('notas', JSON.stringify(notas));
-                
-                document.getElementById('notaTexto').value = '';
-                mostrarNotas();
+                try {
+                    // 📤 CONCEPTO: Enviar datos al servidor (POST)
+                    const response = await fetch('/api/notes', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ text: textoNota })
+                    });
+                    
+                    const data = await response.json();
+                    
+                    // 🔄 CONCEPTO: Actualizar la UI con la respuesta del servidor
+                    const nuevaNota = {
+                        id: data.note.id,
+                        texto: data.note.text,
+                        fecha: new Date(data.note.createdAt).toLocaleDateString()
+                    };
+                    
+                    notas.unshift(nuevaNota);
+                    document.getElementById('notaTexto').value = '';
+                    mostrarNotas();
+                    
+                } catch (error) {
+                    console.error('Error guardando nota:', error);
+                }
             }
         });
 
+        // 🖼️ CONCEPTO: Mostrar datos en la UI (sin cambios)
         function mostrarNotas() {
             const container = document.getElementById('notasGuardadas');
             
@@ -68,8 +104,8 @@
             `).join('');
         }
 
-        // Mostrar notas al cargar la página
-        mostrarNotas();
+        // 🚀 CONCEPTO: Inicializar la aplicación
+        cargarNotasDesdeAPI();
     </script>
 </body>
 </html>

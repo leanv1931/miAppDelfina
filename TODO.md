@@ -37,36 +37,44 @@ getBabyImage() { return this.page.locator('img'); }
 getBabyImage() { return this.page.locator('[data-testid="baby-image"]'); }
 ```
 
-### 2. Implementar API RESTful en Express
+### 2. Implementar API RESTful en Express ✅ COMPLETADO
 **Objetivo**: Crear endpoints para manejo de datos persistentes
 
-**Tareas específicas**:
-- [ ] Crear rutas API REST para notas
+**✅ Tareas completadas**:
+- [x] Crear rutas API REST para notas
   - `GET /api/notes` - Obtener todas las notas
   - `POST /api/notes` - Crear nueva nota
+  - `GET /api/notes/:id` - Obtener nota específica
   - `PUT /api/notes/:id` - Actualizar nota
   - `DELETE /api/notes/:id` - Eliminar nota
-- [ ] Implementar middleware para JSON parsing
-- [ ] Agregar validación de datos de entrada
-- [ ] Implementar almacenamiento persistente (JSON file o base de datos)
-- [ ] Crear manejo de errores centralizado
-- [ ] Agregar logging para debugging
+- [x] Implementar middleware para JSON parsing
+- [x] Agregar validación básica de datos de entrada
+- [x] Implementar almacenamiento en memoria (para desarrollo)
+- [x] Crear manejo de errores centralizado
+- [x] Documentación completa en POSTMAN_GUIDE.md
 
-**Archivos a crear/modificar**:
-- `src/routes/api/notes.js` - Rutas de la API
-- `src/middleware/validation.js` - Validaciones
-- `src/models/Note.js` - Modelo de datos
-- `src/storage/notesStorage.js` - Persistencia de datos
-- `src/server.js` - Integrar las nuevas rutas
+**📚 Aprendizaje en progreso**:
+- [ ] **Postman**: Aprender a usar collections, environments, tests
+- [ ] **Newman**: Ejecutar collections desde terminal
+- [ ] **API Testing automatizado**: Decidir entre Cucumber+Axios o Supertest
+- [ ] **Documentación**: Swagger/OpenAPI auto-generada
 
-**Estructura API sugerida**:
-```javascript
-// GET /api/notes
-{ "notes": [ { "id": 1, "text": "Mi nota", "createdAt": "2025-08-29" } ] }
+### 3. API Testing (NUEVO)
+**Objetivo**: Dominar testing de APIs para asegurar calidad
 
-// POST /api/notes
-{ "text": "Nueva nota" }
-```
+**Fase 1 - Postman (En progreso)**:
+- [ ] Instalar Postman
+- [ ] Crear collection "miDelfina API"
+- [ ] Probar todos los endpoints CRUD
+- [ ] Configurar environment variables
+- [ ] Practicar manejo de errores (404, 400, etc)
+- [ ] Crear tests básicos en Postman
+
+**Fase 2 - Testing Automatizado (Próximo)**:
+- [ ] Decidir herramienta: Cucumber+Axios vs Supertest vs Newman
+- [ ] Implementar tests de API
+- [ ] Integrar con CI/CD
+- [ ] Coverage de API testing
 
 ## 🔄 Mejoras Adicionales (Futuro)
 
