@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 
+// 🔧 Importar configuración centralizada
+const { CONFIG, URLS } = require('../config.js');
+
 const app = express();
 
 // Middleware para parsear JSON
@@ -126,4 +129,8 @@ app.get('/notas', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'notas.html'));
 });
 
-app.listen(3002, () => console.log('Servidor en http://localhost:3002'));
+app.listen(CONFIG.SERVER.PORT, () => {
+    console.log(`🚀 Servidor corriendo en ${URLS.BASE}`);
+    console.log(`📝 Página de notas: ${URLS.NOTES}`);
+    console.log(`📡 API: ${URLS.API_NOTES}`);
+});

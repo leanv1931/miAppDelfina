@@ -8,11 +8,13 @@
  * - Testear tu API de forma automatizada
  */
 
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
-// Configuración base
-const API_BASE_URL = 'http://localhost:3002';
-const NOTES_ENDPOINT = `${API_BASE_URL}/api/notes`;
+// Importar configuración desde archivo JavaScript
+const { URLS } = require('../../config.js');
+
+// Configuración base desde config centralizado
+const NOTES_ENDPOINT = URLS.API_NOTES;
 
 test.describe('📝 Notes API Tests', () => {
   

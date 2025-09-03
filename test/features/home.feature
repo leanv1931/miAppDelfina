@@ -1,3 +1,4 @@
+@home
 Feature: Página Principal
   Como usuario
   Quiero ver la página principal de Delfina

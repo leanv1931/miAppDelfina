@@ -1,5 +1,8 @@
 import { defineConfig } from '@playwright/test';
 
+// Importar configuración desde archivo JavaScript
+const { CONFIG, URLS } = require('../config.js');
+
 /**
  * 🎭 Configuración de Playwright para API Testing
  * 
@@ -7,6 +10,7 @@ import { defineConfig } from '@playwright/test';
  * - Sin browser (más rápido)
  * - Timeouts apropiados para APIs
  * - Reportes detallados
+ * - Puerto dinámico desde config.ts
  */
 
 export default defineConfig({
@@ -28,8 +32,8 @@ export default defineConfig({
   
   // ⚙️ Configuración global de tests
   use: {
-    // 🌐 Base URL para APIs
-    baseURL: 'http://localhost:3002',
+    // 🌐 Base URL dinámica desde config
+    baseURL: URLS.BASE,
     
     // ⏱️ Timeouts para APIs (más cortos que UI)
     actionTimeout: 10000,
