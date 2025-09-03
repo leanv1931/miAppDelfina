@@ -126,4 +126,4 @@ app.get('/notas', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'notas.html'));
 });
 
-app.listen(3001, () => console.log('Servidor en http://localhost:3001'));
+app.listen(3002, () => console.log('Servidor en http://localhost:3002'));
