@@ -14,7 +14,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 600082547
+              "duration": 660035131
             }
           },
           {
@@ -27,7 +27,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1059690583
+              "duration": 1088979892
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 1006454772
+              "duration": 1007032259
             }
           },
           {
@@ -53,7 +53,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 14587354
+              "duration": 14736010
             }
           },
           {
@@ -66,7 +66,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 45933278
+              "duration": 46949115
             }
           },
           {
@@ -79,7 +79,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 15589049
+              "duration": 10694986
             }
           },
           {
@@ -92,7 +92,7 @@
             },
             "result": {
               "status": "passed",
-              "duration": 9931047
+              "duration": 18137827
             }
           },
           {
@@ -100,7 +100,7 @@
             "hidden": true,
             "result": {
               "status": "passed",
-              "duration": 2039307225
+              "duration": 2033457682
             }
           }
         ],
@@ -114,5 +114,95 @@
     "name": "Página Principal",
     "tags": [],
     "uri": "features/home.feature"
+  },
+  {
+    "description": "  Como usuario\n  Quiero gestionar notas sobre Delfina\n  Para recordar información importante",
+    "elements": [
+      {
+        "description": "",
+        "id": "gestión-de-notas;agregar-una-nueva-nota",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Agregar una nueva nota",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 292749692
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "que estoy en la página de notas",
+            "match": {
+              "location": "step-definitions/notes.steps.ts:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1122644668
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "escribo \"ir al pediatra\" en el campo de nueva nota",
+            "match": {
+              "location": "step-definitions/notes.steps.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3498631527
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "hago clic en el botón guardar",
+            "match": {
+              "location": "step-definitions/notes.steps.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2571746740
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "debo ver la nota \"ir al pediatra\" en la lista de notas guardadas",
+            "match": {
+              "location": "step-definitions/notes.steps.ts:34"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11248767
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 2026758636
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "gestión-de-notas",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Gestión de Notas",
+    "tags": [],
+    "uri": "features/notes.feature"
   }
 ]
