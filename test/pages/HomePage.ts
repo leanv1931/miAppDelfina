@@ -7,6 +7,8 @@ export class HomePage extends BasePage {
     await expect(title).toContain("Delfina");
     console.log("Titulo de la pagina HomePage verificado");
   }
+
+  // no es util por ahora!!
   async gotoWeb() {
     await this.page.goto('http://localhost:3004');
   }

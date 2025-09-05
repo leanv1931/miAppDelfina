@@ -12,3 +12,10 @@ Feature: Gestión de Notas
   #   Then debo ver la nota "ir al pediatra" en la lista de notas guardadas
 
   
+
+ # TEST COMENTADO
+  # Scenario: Crear nota personalizada
+  #   Given que navego a la página de notas
+  #   When agrego una nota que dice "Mi nota de prueba"
+  #   Then la nota aparece en la lista
+  #   And puedo ver el texto "Mi nota de prueba"

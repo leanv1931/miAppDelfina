@@ -10,6 +10,7 @@
     "test:ui": "cd test && npm run test:ui && npm run report",
     "test:home": "cd test && npm run test:home",
     "test:notes": "cd test && npm run test:notes",
+    "test:e2e": "cd test && npm run test:e2e",
     "test:watch": "cd test && npm run test:watch",
     "test:debug": "cd test && npm run test:debug",
     "test:visual": "cd test && npm run test:visual",
