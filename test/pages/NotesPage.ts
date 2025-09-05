@@ -45,4 +45,9 @@ export class NotesPage extends BasePage {
   async verifyNoteExists(noteText: string) {
     await expect(this.getNotesContainer()).toContainText(noteText);
   }
+
+  async checkTitleNotesPage() {
+    expect(await this.getTitle()).toContain("Notas");
+    console.log("Titulo de la pagina NotesPage verificado");
+  }
 }

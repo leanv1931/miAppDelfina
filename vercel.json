@@ -12,6 +12,10 @@
       "dest": "/src/public/googledbcecb6033bfd83d.html"
     },
     {
+      "src": "/notas",
+      "dest": "/src/public/notas.html"
+    },
+    {
       "src": "/(.*)",
       "dest": "/src/server.js"
     }

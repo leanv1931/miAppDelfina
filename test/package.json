@@ -6,6 +6,7 @@
     "test": "cucumber-js --config cucumber.config.js",
     "test:home": "cucumber-js features/home.feature --config cucumber.config.js",
     "test:notes": "cucumber-js features/notes.feature --config cucumber.config.js",
+    "test:e2e": "cucumber-js features/e2e.feature --config cucumber.config.js",
     "test:ui": "cucumber-js --config cucumber.config.js --format html:test-results/cucumber-report.html",
     "test:debug": "cucumber-js --config cucumber.config.js --fail-fast",
     "test:visual": "cucumber-js --config cucumber.config.js --format @cucumber/pretty-formatter",

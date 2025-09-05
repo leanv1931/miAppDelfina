@@ -11,7 +11,7 @@
 const CONFIG = {
   // 🌐 Configuración del servidor
   SERVER: {
-    PORT: 3003,  // 👈 CAMBIA SOLO ESTE NÚMERO
+    PORT: 3004,  // 👈 CAMBIA SOLO ESTE NÚMERO
     HOST: 'localhost'
   },
   

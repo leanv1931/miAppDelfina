@@ -45,3 +45,7 @@ Then('debo ver el botón para navegar a notas', async function (this: CustomWorl
   await expect(this.homePage.getNotesButton()).toBeVisible();
   console.log('✅ Botón de notas visible');
 });
+
+
+
+
