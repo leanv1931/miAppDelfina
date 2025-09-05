@@ -6,14 +6,16 @@
       "use": "@vercel/node"
     }
   ],
+  "rewrites": [
+    {
+      "source": "/notas",
+      "destination": "/src/public/notas.html"
+    }
+  ],
   "routes": [
     {
       "src": "/googledbcecb6033bfd83d.html",
       "dest": "/src/public/googledbcecb6033bfd83d.html"
-    },
-    {
-      "src": "/notas",
-      "dest": "/src/public/notas.html"
     },
     {
       "src": "/(.*)",
