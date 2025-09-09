@@ -93,9 +93,94 @@
         <div class="empty-state">
             No hay notas guardadas
         </div>
-        <a href="#" class="button">Crear Nota</a>
-        <br>
+        <div id="notes-container" style="display: none;">
+            <!-- Las notas se cargarán aquí -->
+        </div>
+        
+        <!-- Formulario para crear nota -->
+        <div style="margin: 20px 0; text-align: left;">
+            <input type="text" id="noteInput" placeholder="Escribe tu nota aquí..." 
+                   style="width: 100%; padding: 12px; border: 2px solid #10b981; border-radius: 8px; font-size: 16px; margin-bottom: 10px;">
+            <button onclick="createNote()" class="button" style="width: 48%; margin-right: 2%;">Crear Nota</button>
+            <button onclick="loadNotes()" class="button button-secondary" style="width: 48%;">Ver Notas</button>
+        </div>
+        
         <a href="/" class="button button-secondary">Volver al Inicio</a>
     </div>
+
+    <script>
+        // Función para crear nota y luego cargar todas las notas
+        async function createNote() {
+            const input = document.getElementById('noteInput');
+            const text = input.value.trim();
+            
+            if (!text) {
+                alert('Por favor escribe algo en la nota');
+                return;
+            }
+            
+            try {
+                // Llamada POST para crear la nota
+                const response = await fetch('/api/notes', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: text })
+                });
+                
+                if (response.ok) {
+                    input.value = ''; // Limpiar input
+                    loadNotes(); // Cargar todas las notas después de crear
+                } else {
+                    alert('Error creando la nota');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error creando la nota');
+            }
+        }
+        
+        // Función para cargar notas desde la API (solo se llama después de crear)
+        async function loadNotes() {
+            try {
+                const response = await fetch('/api/notes');
+                const data = await response.json();
+                
+                const emptyState = document.querySelector('.empty-state');
+                const notesContainer = document.getElementById('notes-container');
+                
+                if (data.notes && data.notes.length > 0) {
+                    // Ocultar mensaje vacío y mostrar notas
+                    emptyState.style.display = 'none';
+                    notesContainer.style.display = 'block';
+                    
+                    // Crear HTML para las notas
+                    const notesHTML = data.notes.map(note => `
+                        <div style="background: #f0fdf4; padding: 15px; margin: 10px 0; border-radius: 10px; border-left: 4px solid #10b981; text-align: left;">
+                            <div style="font-weight: bold; color: #10b981; margin-bottom: 5px;">Nota #${note.id}</div>
+                            <div style="color: #333; margin-bottom: 8px;">${note.text}</div>
+                            <div style="font-size: 12px; color: #666;">${new Date(note.createdAt).toLocaleString()}</div>
+                        </div>
+                    `).join('');
+                    
+                    notesContainer.innerHTML = notesHTML;
+                } else {
+                    // Mostrar mensaje vacío
+                    emptyState.style.display = 'block';
+                    notesContainer.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error cargando notas:', error);
+            }
+        }
+        
+        // Permitir crear nota con Enter
+        document.getElementById('noteInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                createNote();
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
+const { CONFIG } = require('../config.js');
 
 const app = express();
-const PORT = process.env.PORT || 3005;
 app.use(express.json());
 
 // Servir archivos estáticos
@@ -48,8 +48,8 @@ app.get('/notas', (req, res) => {
 
 // Para desarrollo local
 if (require.main === module) {
-    app.listen(PORT, () => {
-        console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+    app.listen(CONFIG.SERVER.PORT, () => {
+        console.log(`🚀 Servidor corriendo en http://localhost:${CONFIG.SERVER.PORT}`);
     });
 }
 
