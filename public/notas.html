@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, #8b5cf6, #3b82f6);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,11 +23,21 @@
             text-align: center;
             max-width: 500px;
             width: 90%;
+            border: 3px solid #8b5cf6;
         }
         h1 {
-            color: #333;
+            color: #8b5cf6;
             font-size: 2.5em;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
+        }
+        .version {
+            color: #666;
+            font-size: 12px;
+            margin-bottom: 20px;
+            background: #f3f4f6;
+            padding: 5px 10px;
+            border-radius: 10px;
+            display: inline-block;
         }
         .photo {
             max-width: 100%;
@@ -45,7 +55,7 @@
         .button {
             display: inline-block;
             padding: 15px 30px;
-            background: linear-gradient(45deg, #10b981, #059669);
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
             color: white;
             text-decoration: none;
             border-radius: 25px;
@@ -66,7 +76,9 @@
 <body>
     <div class="container">
         <h1>Notas de Delfina</h1>
-        <img src="/images/bebe.jpg" alt="Delfina" class="photo">
+        <div class="version">v2.0 - Deploy con bebe.jpg 🚀</div>
+        <img src="/images/bebe.jpg" alt="Bebé Delfina" class="photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; color:red; padding:10px; background:#ffe6e6; border-radius:10px; margin:20px 0;">❌ Imagen no encontrada: /images/bebe.jpg</div>
         <div class="empty-state">
             No hay notas guardadas
         </div>
