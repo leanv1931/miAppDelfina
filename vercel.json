@@ -8,6 +8,10 @@
   ],
   "routes": [
     {
+      "src": "/bebe.jpg",
+      "dest": "/public/bebe.jpg"
+    },
+    {
       "src": "/images/(.*)",
       "dest": "/images/$1"
     },
